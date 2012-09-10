@@ -5,3 +5,10 @@ snippet [
 snippet ![
 	![${1:alttext}](${2:/images/image.jpg} "${3:title}")
 
+snippet meta
+	Date: ${1:`strftime("%Y-%m-%d")`}
+	Title: ${2}
+	Category: ${3}
+	Slug: ${4}
+	Tags: ${5:life}, ${6:python}
+

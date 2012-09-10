@@ -26,3 +26,5 @@ snippet case
 		${2:pattern})
 			${3};;
 	esac
+snippet chain
+	${1:ps axu} | ${2:grep python} | ${3:awk} | ${4:xargs}
