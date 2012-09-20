@@ -156,8 +156,12 @@ snippet gpl
 	
 	${3:#code}
 # setup.py
-snippet setup
-	from distutils.core import setup
+snippet snsetup
+	from setuptools import setup, find_packages
+	
+	install_requires = [
+		'${1:package}>=${2:1.0}',
+	]
 
 	setup(
 		name='${1:name}',
@@ -166,10 +170,21 @@ snippet setup
 		author='${4:author}',
 		author_email='${5:email}',
 		url='${6:http}',
-		packages=['${7}', '${8}'],
+		license='BSD',
+		package_dir={'': 'src'},
+		packages=find_packages('src'),
+		zip_safe=False,
+		install_requires=install_requires,
+		include_package_data=True,
+		classifiers=[
+			'Intented Audience :: Developers',
+			'Intented Audience :: System Administrators',
+			'Operating System :: OS Independent',
+			'Topic :: Software Development'
+		]
 	)
 # thread
-snippet thread
+snippet snthread
 	import threading
 
 	class ${1:MyThread}(threading.Thread):
@@ -184,12 +199,12 @@ snippet thread
 				task = self.queue.get()
 				${3:do_something()}
 				self.queue.task_done()
-snippet queue
+snippet snqueue
 	import Queue
 	queue = Queue.Queue()
 
 	queue.put(${1})
-snippet s
+snippet sns
 	'%s' % (${1},)
-snippet nt
+snippet snnt
 	${1:Point} = namedtuple('{2:Point}', ['{3:x}', '{4:y}']
