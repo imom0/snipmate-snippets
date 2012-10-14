@@ -225,3 +225,10 @@ snippet sns
 	'%s' % (${1},)
 snippet snnt
 	${1:Point} = namedtuple('{2:Point}', ['{3:x}', '{4:y}']
+snippet snargparse
+	import argparse
+	${1:parser} = argparse.ArgumentParser()
+	$1.parse_args()
+snippet snaddarg
+	${1:parser}.add_argument('${2:name}', type=${3:type},
+		help='${4:help_text}')
