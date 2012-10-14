@@ -232,3 +232,18 @@ snippet snargparse
 snippet snaddarg
 	${1:parser}.add_argument('${2:name}', type=${3:type},
 		help='${4:help_text}')
+snippet sndocopt
+	"""${1:ScriptName}.
+
+	Usage:
+	  ${2:filename}.py action (${3:choicex}|${4:choicey}) <x> <y>
+	
+	Options:
+	  -h --help    			${5:Show help}
+	  --version    			Show version
+	  --speed=<speed>       ${6:speed}
+	"""
+
+	if __name__ == '__main__':
+	    from docopt import docopt
+	    ${7:args} = docopt(__doc__, version='${8:version}')
