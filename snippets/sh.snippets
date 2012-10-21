@@ -28,3 +28,7 @@ snippet case
 	esac
 snippet chain
 	${1:ps axu} | ${2:grep python} | ${3:awk} | ${4:xargs}
+snippet readdft
+	default_${1:var}="${2:value}"
+	read -p "Specify your $1 ,(default: ${default_$1}) " $1
+	$1="${$1:-$default_$1}"
